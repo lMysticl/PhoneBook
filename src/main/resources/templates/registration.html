@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhoneBook - Sign up</title>
+    <script src="/js/vendor/jquery-3.1.1.min.js"></script>
+    <link href="/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/vendor/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/js/vendor/jquery.json.js"></script>
+    <script src="/js/app.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <form class="form-registration" id="registration-form" action="registration" method="post">
+        <h2 class="form-registration-heading">Please registration</h2>
+
+        <label for="username">Username*</label>
+        <input name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+
+        <label for="firstname">First name*</label>
+        <input name="firstname" id="firstname" class="form-control" placeholder="First name" required>
+
+        <label for="lastname">Last name*</label>
+        <input name="lastname" id="lastname"  class="form-control" placeholder="Last name" required>
+
+        <label for="middlename">Middle name*</label>
+        <input name="middlename" id="middlename" class="form-control" placeholder="Middle name" required>
+
+        <label for="password">Password*</label>
+        <input name="password" id="password" class="form-control" placeholder="Password" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+        <p class="text-center">You are registered?<a href="/login">Sign in</a> </p>
+    </form>
+</div>
+
+</body>
+</html>

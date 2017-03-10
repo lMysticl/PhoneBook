@@ -5,7 +5,7 @@ MySql server SetUp
 --------------------
 CREATE SCHEMA `phonebook` ;
 
-CREATE TABLE `phonebook`.`users` (\n
+CREATE TABLE `phonebook`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
@@ -36,8 +36,11 @@ CREATE TABLE `phonebook`.`contacts` (
 Set MySQL server configuration:
 --------------------
 Change properties in application.properties (src\main\resources\application.properties)
+
 spring.datasource.url - url to server
+
 spring.datasource.username= server username
+
 spring.datasource.password= server password
 
 

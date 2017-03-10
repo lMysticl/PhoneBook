@@ -54,4 +54,6 @@ If install Maven: mvn spring-boot:run
 
 Without maven installed: mvnw spring-boot:run
 
+Open in browser: http://localhost:8080
+
 

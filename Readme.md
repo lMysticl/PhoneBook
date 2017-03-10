@@ -6,7 +6,7 @@ MySql server SetUp
 CREATE SCHEMA `phonebook` ;
 
 CREATE TABLE `phonebook`.`users` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,

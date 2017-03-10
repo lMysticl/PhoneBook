@@ -2,7 +2,6 @@ package com.forestyura.controller;
 
 import com.forestyura.model.entity.User;
 import com.forestyura.model.service.UserService;
-import com.forestyura.service.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

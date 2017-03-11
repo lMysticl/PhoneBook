@@ -28,8 +28,7 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ResponseEntity registration(/*@RequestParam String username, String firstname, String middlename, String lastname, String password*/ User user) {
-        //User user = new User(username, password, firstname, lastname, middlename);
+    public ResponseEntity registration(User user) {
         if(userService.existsUsername(user.getUsername())) {
             return ResponseEntity
                     .status(HttpStatus.NOT_ACCEPTABLE)

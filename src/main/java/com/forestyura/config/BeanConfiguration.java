@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 
 @Configuration

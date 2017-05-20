@@ -20,17 +20,16 @@ public class ContactService {
     private final ContactRepository contactRepository;
 
 
-
-    public ArrayList<Contact> getByUserId (long userId) {
+    public ArrayList<Contact> getByUserId(long userId) {
         return contactRepository.findByUserId(userId);
 
     }
 
-    public void deleteByContactId (long userId) {
+    public void deleteByContactId(long userId) {
         contactRepository.deleteByContactId(userId);
     }
 
-    public Contact saveContact(Contact contact){
+    public Contact saveContact(Contact contact) {
         return contactRepository.saveAndFlush(contact);
     }
 
@@ -45,7 +44,6 @@ public class ContactService {
                 contact.getAddress(),
                 contact.getEmail());
     }
-
 
 
 }

@@ -1,188 +1,184 @@
-
-
 // The main form.
 // Most of the styles for display of the main form come from the display
 // controller (lightbox and envelope are the two built in options).
 div.DTE_Body {
-	padding: 50px 0; // space for hte header and footer which are position: absolute
-	
-	div.DTE_Body_Content {
-		position: relative;
-		overflow: auto;
+  padding: 50px 0; // space for hte header and footer which are position: absolute
 
-		div.DTE_Form_Info {
-			padding: 1em 1em 0 1em;
-			margin: 0;
-		}
+  div.DTE_Body_Content {
+    position: relative;
+    overflow: auto;
 
-		div.DTE_Field {
-			position: relative;
-			zoom: 1;
-			
-			clear: both;
-			padding: 5px 20%;
-			border: 1px solid transparent;
+    div.DTE_Form_Info {
+      padding: 1em 1em 0 1em;
+      margin: 0;
+    }
 
-			&:after {
-				display: block;
-				content: ".";
-				height: 0;
-				line-height: 0;
-				clear: both;
-				visibility: hidden;
-			}
+    div.DTE_Field {
+      position: relative;
+      zoom: 1;
 
-			&:hover {
-				background-color: #f9f9f9;
-				border: 1px solid #f3f3f3;
-			}
+      clear: both;
+      padding: 5px 20%;
+      border: 1px solid transparent;
 
-			>label {
-				float: left;
-				width: 40%;
-				padding-top: 6px;
-			}
+      &:after {
+        display: block;
+        content: ".";
+        height: 0;
+        line-height: 0;
+        clear: both;
+        visibility: hidden;
+      }
 
-			>div.DTE_Field_Input {
-				float: right;
-				width: 60%;
-			}
+      &:hover {
+        background-color: #f9f9f9;
+        border: 1px solid #f3f3f3;
+      }
 
-			// Field in error state
-			&.DTE_Field_StateError { }
+      > label {
+        float: left;
+        width: 40%;
+        padding-top: 6px;
+      }
 
-			&.full {
-				padding: 5px 0 5px 20%;
+      > div.DTE_Field_Input {
+        float: right;
+        width: 60%;
+      }
 
-				>label {
-					width: 30%;
-				}
+      // Field in error state
+      &.DTE_Field_StateError {
+      }
 
-				>div.DTE_Field_Input {
-					width: 70%;
-				}
-			}
+      &.full {
+        padding: 5px 0 5px 20%;
 
-			&.block {
-				>div.DTE_Field_Input {
-					float: none;
-					clear: both;
-					width: 100%;
-				}
-			}
-		}
-	}
+        > label {
+          width: 30%;
+        }
+
+        > div.DTE_Field_Input {
+          width: 70%;
+        }
+      }
+
+      &.block {
+        > div.DTE_Field_Input {
+          float: none;
+          clear: both;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 html[dir="rtl"] {
-	div.DTE_Body div.DTE_Body_Content div.DTE_Field {
-		> label {
-			float: right;
-		}
+  div.DTE_Body div.DTE_Body_Content div.DTE_Field {
+    > label {
+      float: right;
+    }
 
-		>div.DTE_Field_Input {
-			float: left;
-		}
-	}
-	
-	div.DTE div.DTE_Form_Buttons button {
-		float: left;
-	}
+    > div.DTE_Field_Input {
+      float: left;
+    }
+  }
+
+  div.DTE div.DTE_Form_Buttons button {
+    float: left;
+  }
 }
 
 // iPad in portrait 
-@media only screen 
-and (max-width : 768px) {
-	div.DTE_Body {
-		div.DTE_Body_Content {
-			div.DTE_Field {
-				padding: 5px 10%;
+@media only screen and (max-width: 768px) {
+  div.DTE_Body {
+    div.DTE_Body_Content {
+      div.DTE_Field {
+        padding: 5px 10%;
 
-				&.full {
-					padding: 5px 0 5px 10%;
+        &.full {
+          padding: 5px 0 5px 10%;
 
-					>label {
-						width: 35.5%;
-					}
+          > label {
+            width: 35.5%;
+          }
 
-					>div.DTE_Field_Input {
-						width: 64.5%;
-					}
-				}
+          > div.DTE_Field_Input {
+            width: 64.5%;
+          }
+        }
 
-				&.block {
-					>div.DTE_Field_Input {
-						width: 100%;
-					}
-				}
-			}
-		}
-	}
+        &.block {
+          > div.DTE_Field_Input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 
-@media only screen 
-and (max-width : 640px) {
-	div.DTE_Body {
-		div.DTE_Body_Content {
-			div.DTE_Field {
-				padding: 5px 0;
+@media only screen and (max-width: 640px) {
+  div.DTE_Body {
+    div.DTE_Body_Content {
+      div.DTE_Field {
+        padding: 5px 0;
 
-				&.full {
-					padding: 5px 0%;
+        &.full {
+          padding: 5px 0%;
 
-					>label {
-						width: 40%;
-					}
+          > label {
+            width: 40%;
+          }
 
-					>div.DTE_Field_Input {
-						width: 60%;
-					}
-				}
+          > div.DTE_Field_Input {
+            width: 60%;
+          }
+        }
 
-				&.block {
-					>div.DTE_Field_Input {
-						width: 100%;
-					}
-				}
-			}
-		}
-	}
+        &.block {
+          > div.DTE_Field_Input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 
 // For devices with smaller screens, the fields should be shown stacked
-@media only screen 
-and (max-width : 580px) {
-	div.DTE_Body {
-		div.DTE_Body_Content {
-			div.DTE_Field {
-				position: relative;
-				zoom: 1;
-				
-				clear: both;
-				padding: 5px 0;
+@media only screen and (max-width: 580px) {
+  div.DTE_Body {
+    div.DTE_Body_Content {
+      div.DTE_Field {
+        position: relative;
+        zoom: 1;
 
-				>label {
-					float: none;
-					width: auto;
-					padding-top: 0;
-				}
+        clear: both;
+        padding: 5px 0;
 
-				>div.DTE_Field_Input {
-					float: none;
-					width: auto;
-				}
+        > label {
+          float: none;
+          width: auto;
+          padding-top: 0;
+        }
 
-				&.full,
-				&.block {
-					padding: 5px 0;
+        > div.DTE_Field_Input {
+          float: none;
+          width: auto;
+        }
 
-					>label,
-					>div.DTE_Field_Input {
-						width: 100%;
-					}
-				}
-			}
-		}
-	}
+        &.full,
+        &.block {
+          padding: 5px 0;
+
+          > label,
+          > div.DTE_Field_Input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 

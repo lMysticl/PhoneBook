@@ -10,13 +10,15 @@ import java.util.ArrayList;
 
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 
 @Repository
 public interface ContactRepository extends CrudRepository<Contact, Long> {
     ArrayList<Contact> findByUserId(long userId);
+
     Long deleteByContactId(long userId);
+
     Contact saveAndFlush(Contact contact);
     //TODO
 //    void save(long contactId,

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 
 @Controller
@@ -28,10 +28,9 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
 
 
-
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ResponseEntity registration(User user) {
-        if(userService.existsUsername(user.getUsername())) {
+        if (userService.existsUsername(user.getUsername())) {
             return ResponseEntity
                     .status(HttpStatus.NOT_ACCEPTABLE)
                     .body("User with this username already register");
@@ -45,7 +44,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         new SecurityContextLogoutHandler().logout(request, response, auth);
         return "redirect:/login?logout";

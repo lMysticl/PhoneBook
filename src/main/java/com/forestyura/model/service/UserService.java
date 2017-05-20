@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 
 @Service("userService")
@@ -31,10 +31,10 @@ public class UserService {
     }
 
     public User saveUser(User user) {
-       return userRepository.saveAndFlush(user);
+        return userRepository.saveAndFlush(user);
     }
 
-    public  boolean existsUsername(String username) {
+    public boolean existsUsername(String username) {
         return userRepository.findByUsername(username).isPresent();
     }
 }

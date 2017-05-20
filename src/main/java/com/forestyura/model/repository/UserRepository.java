@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     ArrayList<User> findAll();
+
     Optional<User> findByUserId(Long id);
+
     Optional<User> findByUsername(String username);
+
     User saveAndFlush(User user);
 }

@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import javax.sql.DataSource;
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 @Configuration
 @EnableWebSecurity
@@ -25,9 +25,7 @@ import javax.sql.DataSource;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
-
     private final PasswordEncoder passwordEncoder;
-
     private final DataSource dataSource;
 
     @Autowired

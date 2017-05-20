@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- *  @author Putrenkov Pavlo
+ * @author Putrenkov Pavlo
  */
 
 @Entity
@@ -50,7 +50,7 @@ public class Contact implements Serializable {
     private String email;
 
     @ManyToOne()
-    @JoinColumn(name = "user_id",insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     @JsonIgnore
     private User user;
 

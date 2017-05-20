@@ -247,16 +247,16 @@ function getData(event) {
 
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     var table = $('#example').DataTable();
 
-    $('#example tbody').on( 'click', 'tr', function () {
+    $('#example tbody').on('click', 'tr', function () {
         $(this).toggleClass('selected');
-    } );
+    });
 
-    $('#deleteContact').click( function () {
-        console.log( table.rows('.selected').data().length +' row(s) selected' );
-        for (var i=0;i<table.rows('.selected').data().length;i++){
+    $('#deleteContact').click(function () {
+        console.log(table.rows('.selected').data().length + ' row(s) selected');
+        for (var i = 0; i < table.rows('.selected').data().length; i++) {
             console.log(table.rows('.selected').data()[i][0]);
             var contactId = {"contactId": table.rows('.selected').data()[i][0]};
             $.post("/contacts/delete", contactId);
@@ -265,8 +265,8 @@ $(document).ready(function() {
         table.rows('.selected').remove();
         table.draw();
 
-    } );
-} );
+    });
+});
 
 
 

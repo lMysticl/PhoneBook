@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 public class PhoneBookApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PhoneBookApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PhoneBookApplication.class, args);
+    }
 }

@@ -1,13 +1,13 @@
 function editContact(dataAtribut, contact) {
     alert("YES");
     var formData = {
-        "lastname":$("#add_lastname").val(),
-        "firstname":$("#add_firstname").val(),
-        "middlename":$("#add_middlename").val(),
-        "mobilePhone":$("#add_mobilePhone").val(),
-        "homePhone":$("#add_homePhone").val(),
-        "address":$("#add_address").val(),
-        "email":$("#add_email").val()
+        "lastname": $("#add_lastname").val(),
+        "firstname": $("#add_firstname").val(),
+        "middlename": $("#add_middlename").val(),
+        "mobilePhone": $("#add_mobilePhone").val(),
+        "homePhone": $("#add_homePhone").val(),
+        "address": $("#add_address").val(),
+        "email": $("#add_email").val()
     };
     var dataAttribute = dataAttribute;
     var contact = contact;

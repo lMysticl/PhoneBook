@@ -1,13 +1,12 @@
 body {
 
-
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/NispYue__1494014618_212.90.62.192.jpg', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/hero_gradient.gif',sizingMethod='scale')";
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 17px;
 
     background: url(img/NispYue__1494014618_212.90.62.192.jpg) no-repeat fixed 50% 30%;
-    background-size       : cover;
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -154,6 +153,7 @@ a {
     color: black;
     /*box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;*/
 }
+
 /*.form-style-5 input[type="text"]:focus,*/
 /*.form-style-5 input[type="date"]:focus,*/
 /*.form-style-5 input[type="datetime"]:focus,*/
@@ -165,7 +165,7 @@ a {
 /*.input[type="submit"]:focus,*/
 /*.form-style-5 textarea:focus,*/
 /*.form-style-5 select:focus {*/
-    /*background: #d2d9dd;*/
+/*background: #d2d9dd;*/
 
 /*}*/
 
@@ -226,7 +226,7 @@ a {
 
 .form-registration h2, .container label, .container h2 {
     background: none;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 .form-registration label, .container label {
@@ -300,7 +300,7 @@ th {
 .btn-add:hover,
 .btn-close:focus,
 .btn-close:hover {
-    background-color: #688fc0 ;
+    background-color: #688fc0;
     color: white;
 }
 
@@ -399,10 +399,11 @@ rgba(240, 255, 255, 0.94);
 }
 
 .table-striped > tbody > tr:nth-of-type(odd):hover,
-tr:hover{
-    background-color: rgb(191, 217, 242)!important;
+tr:hover {
+    background-color: rgb(191, 217, 242) !important;
 }
-.table-striped>tbody>tr:nth-of-type(odd) {
+
+.table-striped > tbody > tr:nth-of-type(odd) {
     background-color: rgb(235, 249, 255);
 }
 
@@ -457,9 +458,7 @@ div.dataTables_wrapper div.dataTables_length label {
     padding: 10px;
 }
 
-
-
-td:focus{
+td:focus {
     outline: none;
 }
 
@@ -474,11 +473,11 @@ td:focus{
     background: rgba(0, 0, 0, 0.3) none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
 div.dataTables_wrapper div.dataTables_filter input {
@@ -487,7 +486,6 @@ div.dataTables_wrapper div.dataTables_filter input {
     width: auto;
     background: rgba(255, 255, 255, 0.27);
 }
-
 
 table.dataTable.select tbody tr,
 table.dataTable thead th:first-child {
@@ -498,10 +496,11 @@ table.dataTable thead th:first-child {
     font-family: inherit;
     color: white;
 }
+
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     box-sizing: border-box;
-    display: inline!important;
-    margin-left: 0!important;
+    display: inline !important;
+    margin-left: 0 !important;
     text-align: center;
     text-decoration: none !important;
     cursor: pointer;

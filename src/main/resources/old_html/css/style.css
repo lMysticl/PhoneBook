@@ -1,0 +1,19 @@
+.container{
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.form-sign-in{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form-registration{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.inline-text{
+    display: inline;
+}
+

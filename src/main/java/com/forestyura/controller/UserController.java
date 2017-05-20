@@ -2,7 +2,7 @@ package com.forestyura.controller;
 
 import com.forestyura.model.entity.User;
 import com.forestyura.model.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -10,22 +10,24 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by Yuriy Vlasiuk on 07.03.2017.
+ *  @author Putrenkov Pavlo
  */
 
 @Controller
+@AllArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
+
+
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ResponseEntity registration(User user) {
@@ -49,5 +51,9 @@ public class UserController {
         return "redirect:/login?logout";
     }
 
-
+//    protected User getCurrentUser() {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String userString = auth.getName();
+//        return userService.findByUsername(userString);
+//    }
 }

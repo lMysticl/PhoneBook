@@ -1,0 +1,49 @@
+server:
+  port: 8002
+
+spring:
+  profiles:
+    active: dev
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    multipart:
+      max-file-size: 10mb
+  jackson:
+    serialization:
+          write_dates_as_timestamps: false
+  jpa:
+    properties:
+      hibernate.show_sql: false
+      hibernate.format_sql: false
+      hibernate.hbm2ddl.auto: update
+      hibernate.enable_lazy_load_no_trans: true
+  thymeleaf:
+    cache: false
+
+---
+spring:
+ profiles: dev
+ jpa:
+   properties:
+    hibernate.dialect: org.hibernate.dialect.MySQLDialect
+ datasource:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/phonebook?useSSL=false&useUnicode=true&amp;characterEncoding=UTF-8
+  username: root
+  password: root
+
+---
+
+logging:
+  level:
+    org.springframework: WARN
+    org.hibernate: WARN
+
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+
+

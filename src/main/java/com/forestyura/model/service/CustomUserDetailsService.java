@@ -14,14 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Yuriy Vlasiuk on 07.03.2017.
+ *  @author Putrenkov Pavlo
  */
 
 @Service("customUserDetailsService")
+
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserService userService;
+    private  UserService userService;
 
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{

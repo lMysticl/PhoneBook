@@ -4,7 +4,7 @@ import com.forestyura.model.entity.Contact;
 import com.forestyura.model.entity.User;
 import com.forestyura.model.service.ContactService;
 import com.forestyura.model.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -16,17 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Created by Yuriy Vlasiuk on 10.03.2017.
+ *  @author Putrenkov Pavlo
  */
 
 @RestController
+@AllArgsConstructor
 public class ContactController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private ContactService contactService;
+    private final ContactService contactService;
 
     @RequestMapping(value = "/contacts/get-all", method = RequestMethod.GET)
     public ResponseEntity returnAllContact() {
@@ -34,6 +33,7 @@ public class ContactController {
         User user = userService.findByUsername(authentication.getName());
 
         List<Contact> contacts = contactService.getByUserId(user.getUserId());
+        //System.out.println(contacts);
         if (contacts.isEmpty()) {
             return ResponseEntity
                     .status(HttpStatus.NOT_ACCEPTABLE)

@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * Created by Yuriy Vlasiuk on 07.03.2017.
+ *  @author Putrenkov Pavlo
  */
 
 @Configuration

@@ -2,29 +2,32 @@ package com.forestyura.model.service;
 
 import com.forestyura.model.entity.Contact;
 import com.forestyura.model.repository.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 
 /**
- * Created by Yuriy Vlasiuk on 07.03.2017.
+ * @author Putrenkov Pavlo
  */
 
 @Component("contactService")
 @Transactional
+@AllArgsConstructor
 public class ContactService {
 
-    @Autowired
-    ContactRepository contactRepository;
+    private final ContactRepository contactRepository;
+
+
 
     public ArrayList<Contact> getByUserId (long userId) {
         return contactRepository.findByUserId(userId);
+
     }
 
-    public Long deleteByContactId (long userId) {
-        return contactRepository.deleteByContactId(userId);
+    public void deleteByContactId (long userId) {
+        contactRepository.deleteByContactId(userId);
     }
 
     public Contact saveContact(Contact contact){
@@ -42,4 +45,7 @@ public class ContactService {
                 contact.getAddress(),
                 contact.getEmail());
     }
+
+
+
 }

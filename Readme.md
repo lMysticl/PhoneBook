@@ -3,8 +3,10 @@ PhoneBook
 
 MySql server SetUp
 --------------------
+Only need to create SCHEMA `phonebook` else tables will create auto!!!!!!!!!
 CREATE SCHEMA `phonebook` ;
 
+additionally simples:
 CREATE TABLE `phonebook`.`users` (
   `user_id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
@@ -54,6 +56,6 @@ If install Maven: mvn spring-boot:run
 
 Without maven installed: mvnw spring-boot:run
 
-Open in browser: http://localhost:8080
+Open in browser: http://localhost:8002
 
 

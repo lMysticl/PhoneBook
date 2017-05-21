@@ -270,3 +270,16 @@ $(document).ready(function () {
 
 
 
+function test() {
+    var rows = document.querySelectorAll('table tr');
+
+    for (var i = 1; i < rows.length; i++) {
+        var cell = rows[i].childNodes;
+        for (var j = 0; j < cell.length; j++) {
+            // var id = ['id', 'fname', 'lname', 'mname', 'mphone', 'hphone', 'address', 'email'];
+            var id = ['1', '2', '3', '4', '5', '6', '7', '8'];
+            cell[j].setAttribute('data', id[j] + i);
+            cell[j].setAttribute('contenteditable', 'true');
+        }
+    }
+}

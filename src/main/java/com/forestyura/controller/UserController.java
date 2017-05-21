@@ -10,8 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Controller
 @AllArgsConstructor
 public class UserController {
@@ -28,7 +27,7 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
 
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @PostMapping(value = "/registration")
     public ResponseEntity registration(User user) {
         if (userService.existsUsername(user.getUsername())) {
             return ResponseEntity
@@ -43,16 +42,11 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @GetMapping(value = "/logout")
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         new SecurityContextLogoutHandler().logout(request, response, auth);
         return "redirect:/login?logout";
     }
 
-//    protected User getCurrentUser() {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        String userString = auth.getName();
-//        return userService.findByUsername(userString);
-//    }
 }

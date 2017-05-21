@@ -12,7 +12,7 @@ And this page is fully adaptable, for different screen sizes.
 
 MySql server SetUp
 --------------------
-Only need to create SCHEMA `phonebook` else tables will create auto!!!!!!!!!
+Only need to create SCHEMA `phonebook` else tables will create automatically!
 --------------------
 CREATE SCHEMA `phonebook` ;
 

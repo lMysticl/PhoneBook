@@ -4,6 +4,7 @@ PhoneBook
 ![_3](https://cloud.githubusercontent.com/assets/19691583/26283314/db318d24-3e2e-11e7-99f9-a2820cefc0af.PNG)
 
 Contacts address book.
+--------------------
 It is possible to add, edit, sort, paginate,
 Authorization.
 Everything works with the database.

@@ -47,7 +47,7 @@ CREATE TABLE `phonebook`.`contacts` (
 
 Set MySQL server configuration:
 --------------------
-Change properties in application.properties (src\main\resources\application.properties)
+Change properties in application.properties (src\main\resources\application.yml)
 
 spring.datasource.url - url to server
 

@@ -18,14 +18,11 @@ import java.util.List;
  */
 
 @Service("customUserDetailsService")
+
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserService userService;
-
     @Autowired
-    public CustomUserDetailsService(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

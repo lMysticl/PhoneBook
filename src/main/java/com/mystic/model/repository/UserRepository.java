@@ -1,6 +1,6 @@
-package com.forestyura.model.repository;
+package com.mystic.model.repository;
 
-import com.forestyura.model.entity.User;
+import com.mystic.model.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package com.forestyura.model.repository;
+package com.mystic.model.repository;
 
-import com.forestyura.model.entity.Contact;
+import com.mystic.model.entity.Contact;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

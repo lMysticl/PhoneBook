@@ -1,7 +1,7 @@
-package com.forestyura.controller;
+package com.mystic.controller;
 
-import com.forestyura.model.entity.User;
-import com.forestyura.model.service.UserService;
+import com.mystic.model.entity.User;
+import com.mystic.model.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

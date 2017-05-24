@@ -1,4 +1,4 @@
-package com.forestyura.model.entity;
+package com.mystic.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

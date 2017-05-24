@@ -1,4 +1,4 @@
-package com.forestyura.config;
+package com.mystic.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.forestyura.config;
+package com.mystic.config;
 
-import com.forestyura.model.service.CustomUserDetailsService;
+import com.mystic.model.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;

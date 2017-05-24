@@ -1,7 +1,7 @@
-package com.forestyura.model.service;
+package com.mystic.model.service;
 
-import com.forestyura.model.entity.Contact;
-import com.forestyura.model.repository.ContactRepository;
+import com.mystic.model.entity.Contact;
+import com.mystic.model.repository.ContactRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

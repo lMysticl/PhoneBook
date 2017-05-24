@@ -1,7 +1,7 @@
-package com.forestyura.model.service;
+package com.mystic.model.service;
 
-import com.forestyura.model.entity.User;
-import com.forestyura.model.repository.UserRepository;
+import com.mystic.model.entity.User;
+import com.mystic.model.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

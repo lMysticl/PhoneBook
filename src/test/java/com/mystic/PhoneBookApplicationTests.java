@@ -1,4 +1,4 @@
-package com.forestyura;
+package com.mystic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

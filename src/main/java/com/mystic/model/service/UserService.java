@@ -5,7 +5,6 @@ import com.mystic.model.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -14,12 +13,10 @@ import java.util.Optional;
  */
 
 @Service("userService")
-@Transactional
 @AllArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
-
 
     public User findByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);

@@ -16,8 +16,6 @@ import java.io.Serializable;
 @Setter
 @ToString
 @EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
 public class Contact implements Serializable {
 
     @Id

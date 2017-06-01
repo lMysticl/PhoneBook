@@ -11,22 +11,18 @@ import java.util.List;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
 public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private long
-            userId;
+    private long userId;
 
     @Column(name = "username")
     private String username;

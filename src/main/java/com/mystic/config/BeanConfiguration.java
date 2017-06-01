@@ -10,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Configuration
 public class BeanConfiguration {
 

@@ -4,8 +4,8 @@ import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 /**
@@ -13,12 +13,11 @@ import java.util.ArrayList;
  */
 
 @Component("contactService")
-@Transactional
 @AllArgsConstructor
+@Transactional
 public class ContactService {
 
     private final ContactRepository contactRepository;
-
 
     public ArrayList<Contact> getByUserId(long userId) {
         return contactRepository.findByUserId(userId);

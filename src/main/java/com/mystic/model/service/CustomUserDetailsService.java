@@ -16,9 +16,7 @@ import java.util.List;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Service("customUserDetailsService")
-
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired

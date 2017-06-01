@@ -10,7 +10,6 @@ import java.util.Optional;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     ArrayList<User> findAll();

@@ -26,7 +26,6 @@ public class UserController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-
     @PostMapping(value = "/registration")
     public ResponseEntity registration(User user) {
         if (userService.existsUsername(user.getUsername())) {

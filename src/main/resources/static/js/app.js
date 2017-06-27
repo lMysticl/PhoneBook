@@ -269,7 +269,6 @@ $(document).ready(function () {
 });
 
 
-
 function test() {
     var rows = document.querySelectorAll('table tr');
 

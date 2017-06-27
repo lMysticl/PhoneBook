@@ -84,7 +84,7 @@ public class ContactServiceTest {
         contactLoc.setMobilePhone("+111111111111");
         contactLoc.setEmail("mail@mail.com");
         contactLoc.setContactId(contact.getContactId());
-        String expect = "Contact{contactId="+contact.getContactId()+", userId="+user.getUserId()+", firstname='firstName', lastname='lastName', middlename='address', mobilePhone='+111111111111', homePhone='null', address='address', email='mail@mail.com'}";
+        String expect = "Contact{contactId=" + contact.getContactId() + ", userId=" + user.getUserId() + ", firstname='firstName', lastname='lastName', middlename='address', mobilePhone='+111111111111', homePhone='null', address='address', email='mail@mail.com'}";
         String actual = contact.toString();
         assertEquals(expect, actual);
     }
@@ -99,7 +99,7 @@ public class ContactServiceTest {
         contactLoc.setMobilePhone("+222222222");
         contactLoc.setEmail("mail2@mail.com");
         contactLoc.setContactId(contact.getContactId());
-        String expect = "Contact{contactId="+contact.getContactId()+", userId="+user.getUserId()+", firstname='firstName2', lastname='lastName2', middlename='address2', mobilePhone='+222222222', homePhone='null', address='address2', email='mail2@mail.com'}";
+        String expect = "Contact{contactId=" + contact.getContactId() + ", userId=" + user.getUserId() + ", firstname='firstName2', lastname='lastName2', middlename='address2', mobilePhone='+222222222', homePhone='null', address='address2', email='mail2@mail.com'}";
         String actual = contact.toString();
         assertEquals(expect, actual);
     }

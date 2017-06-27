@@ -23,7 +23,7 @@ public interface ContactRepository extends CrudRepository<Contact, Long> {
     Contact saveAndFlush(Contact contact);
 
     @Modifying
-    @Query(value = "update Contacts set firstname = ?2, lastname = ?3, middlename = ?4, mobile_phone = ?5, home_phone = ?6, address = ?7, email = ?8 where contact_id = ?1", nativeQuery = true)
+    @Query(value = "UPDATE Contacts SET firstname = ?2, lastname = ?3, middlename = ?4, mobile_phone = ?5, home_phone = ?6, address = ?7, email = ?8 WHERE contact_id = ?1", nativeQuery = true)
     void updateContact(Long contactId,
                        String firstname,
                        String lastname,

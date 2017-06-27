@@ -36,8 +36,8 @@ $(function () {
 
     $("#add-contact-form").submit(function (event) {
         var formData = {
-            "lastname": $("#add_lastname").val(),
             "firstname": $("#add_firstname").val(),
+            "lastname": $("#add_lastname").val(),
             "middlename": $("#add_middlename").val(),
             "mobilePhone": $("#add_mobilePhone").val(),
             "homePhone": $("#add_homePhone").val(),
@@ -63,8 +63,8 @@ $(function () {
     $("#edit-contact-form").submit(function (event) {
         var formData = {
             "contactId": editingContactId,
-            "lastname": $("#edit_lastname").val(),
             "firstname": $("#edit_firstname").val(),
+            "lastname": $("#edit_lastname").val(),
             "middlename": $("#edit_middlename").val(),
             "mobilePhone": $("#edit_mobilePhone").val(),
             "homePhone": $("#edit_homePhone").val(),
@@ -79,8 +79,8 @@ $(function () {
         }
 
         var childNodes = $("#" + editingContactId)[0].childNodes;
-        childNodes[0].innerHTML = formData.lastname;
-        childNodes[1].innerHTML = formData.firstname;
+        childNodes[0].innerHTML = formData.firstname;
+        childNodes[1].innerHTML = formData.lastname;
         childNodes[2].innerHTML = formData.middlename;
         childNodes[3].innerHTML = formData.mobilePhone;
         childNodes[4].innerHTML = formData.homePhone;
@@ -110,8 +110,8 @@ $(function () {
         editingContactId = $(this).closest('.table-row').attr("id");
         var childNodes = $(this).closest('.table-row')[0].childNodes;
 
-        $("#edit_lastname").val(childNodes[0].innerHTML);
         $("#edit_firstname").val(childNodes[1].innerHTML);
+        $("#edit_lastname").val(childNodes[0].innerHTML);
         $("#edit_middlename").val(childNodes[2].innerHTML);
         $("#edit_mobilePhone").val(childNodes[3].innerHTML);
         $("#edit_homePhone").val(childNodes[4].innerHTML);
@@ -228,8 +228,8 @@ function getData(event) {
     var parentRowData = target.parent('tr').children();
     var formData = {
         "contactId": parentRowData.eq(0).html(),
-        "lastname": parentRowData.eq(1).html(),
-        "firstname": parentRowData.eq(2).html(),
+        "firstname": parentRowData.eq(1).html(),
+        "lastname": parentRowData.eq(2).html(),
         "middlename": parentRowData.eq(3).html(),
         "mobilePhone": parentRowData.eq(4).html(),
         "homePhone": parentRowData.eq(5).html(),

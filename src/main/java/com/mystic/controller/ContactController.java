@@ -54,7 +54,7 @@ public class ContactController {
 
     @PostMapping(value = "contacts/delete")
     public void deleteContact(Contact contact) {
-        contactService.deleteByContactId(contact.getContactId());
+        contactService.deleteByUserId(contact.getContactId());
     }
 
     @PostMapping(value = "contacts/update")

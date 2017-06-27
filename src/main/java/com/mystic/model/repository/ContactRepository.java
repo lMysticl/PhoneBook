@@ -16,9 +16,9 @@ import java.util.ArrayList;
 @Repository
 public interface ContactRepository extends CrudRepository<Contact, Long> {
 
-    ArrayList<Contact> findByUserId(long userId);
+    ArrayList<Contact> findByUserId(Long userId);
 
-    Long deleteByContactId(long userId);
+    Long deleteByUserId(Long userId);
 
     Contact saveAndFlush(Contact contact);
 

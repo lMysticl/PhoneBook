@@ -19,13 +19,13 @@ public class ContactService {
 
     private final ContactRepository contactRepository;
 
-    public ArrayList<Contact> getByUserId(long userId) {
+    public ArrayList<Contact> getByUserId(Long userId) {
         return contactRepository.findByUserId(userId);
 
     }
 
-    public void deleteByContactId(long userId) {
-        contactRepository.deleteByContactId(userId);
+    public Long deleteByUserId(Long userId) {
+      return   contactRepository.deleteByUserId(userId);
     }
 
     public Contact saveContact(Contact contact) {

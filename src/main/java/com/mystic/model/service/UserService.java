@@ -34,4 +34,6 @@ public class UserService {
     public boolean existsUsername(String username) {
         return userRepository.findByUsername(username).isPresent();
     }
+
+
 }

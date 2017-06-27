@@ -15,8 +15,10 @@ import java.util.List;
 @Table(name = "users")
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class User implements Serializable {
 
     @Id

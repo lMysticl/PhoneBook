@@ -18,7 +18,6 @@ public interface ContactRepository extends CrudRepository<Contact, Long> {
 
     ArrayList<Contact> findByUserId(Long userId);
 
-    void deleteByUserId(Long userId);
 
     Contact saveAndFlush(Contact contact);
 

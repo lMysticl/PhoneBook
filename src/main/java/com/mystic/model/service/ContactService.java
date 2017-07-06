@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @Transactional
 public class ContactService {
 
-    private final ContactRepository contactRepository;
+    private  ContactRepository contactRepository;
 
     public ArrayList<Contact> getByUserId(Long userId) {
         return contactRepository.findByUserId(userId);

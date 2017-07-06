@@ -24,8 +24,8 @@ public class ContactService {
 
     }
 
-    public Long deleteByUserId(Long userId) {
-        return contactRepository.deleteByUserId(userId);
+    public void deleteByUserId(Long userId) {
+        contactRepository.delete(userId);
     }
 
     public Contact saveContact(Contact contact) {

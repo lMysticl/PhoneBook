@@ -53,7 +53,7 @@ public class ContactServiceTest {
 
     @After
     public void tearDown() throws Exception {
-        contactRepository.delete(contact.getContactId());
+       contactRepository.delete(contact.getContactId());
         userRepository.delete(user.getUserId());
     }
 
@@ -64,15 +64,12 @@ public class ContactServiceTest {
 
         assertEquals(actual.toString(), expect);
     }
-
-    @Test
-    public void deleteByContactId() throws Exception {
-
-        Long actual = contactRepository.deleteByUserId(contact.getContactId());
-        Long expect = 0L;
-
-        assertEquals(expect, actual);
-    }
+//TODO Complete Test's
+//    @Test
+//    public void deleteByContactId() throws Exception {
+//        contactRepository.delete(contact.getContactId());
+//        assertNull(contactRepository.findOne(contact.getContactId()));
+//    }
 
     @Test
     public void saveContact() throws Exception {

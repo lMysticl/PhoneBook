@@ -6,7 +6,7 @@
     <groupId>com.putrenkov</groupId>
     <artifactId>PhoneBook</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>PhoneBook</name>
     <description>Test task for lardi-trans</description>

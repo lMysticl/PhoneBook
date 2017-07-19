@@ -37,18 +37,13 @@ public class ContactServiceTest {
     private List<Contact> contacts = new ArrayList<>();
     @Before
     public void setUp() throws Exception {
-
     when(contactRepository.findByUserId(userId)).thenReturn((ArrayList<Contact>) contacts);
-
-
     }
-
 
     @Test
     public void getByUserId() throws Exception {
         assertEquals(contactService.getByUserId(userId), contacts);
     }
 
-////TODO  Mock  Test's
 
 }

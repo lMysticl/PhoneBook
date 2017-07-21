@@ -33,7 +33,6 @@ public class ContactServiceTest {
     private ContactRepository contactRepository;
 
 
-
     private List<Contact> contacts = new ArrayList<>();
     @Before
     public void setUp() throws Exception {

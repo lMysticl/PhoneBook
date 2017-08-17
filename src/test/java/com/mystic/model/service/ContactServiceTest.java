@@ -34,6 +34,7 @@ public class ContactServiceTest {
 
 
     private List<Contact> contacts = new ArrayList<>();
+
     @Before
     public void setUp() throws Exception {
     when(contactRepository.findByUserId(userId)).thenReturn((ArrayList<Contact>) contacts);

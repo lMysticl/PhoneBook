@@ -1,6 +1,6 @@
 package com.mystic.config;
 
-import com.mystic.model.service.CustomUserDetailsService;
+import com.mystic.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,8 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author Putrenkov Pavlo
  */
 @Configuration
-public class BeanConfiguration {
-
+public class  BeanConfiguration  {
+//extends WebSecurityConfigurerAdapter
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

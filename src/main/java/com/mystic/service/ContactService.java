@@ -1,4 +1,4 @@
-package com.mystic.model.service;
+package com.mystic.service;
 
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 @Component("contactService")
 @AllArgsConstructor
 @Transactional
-public class ContactService {
+public class ContactService{
 
     private  ContactRepository contactRepository;
 

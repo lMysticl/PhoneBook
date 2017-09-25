@@ -1,4 +1,4 @@
-package com.mystic.model.service;
+package com.mystic.service;
 
 import com.mystic.model.entity.User;
 import com.mystic.model.repository.UserRepository;

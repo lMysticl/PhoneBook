@@ -2,16 +2,14 @@ package com.mystic.controller;
 
 import com.mystic.model.entity.Contact;
 import com.mystic.model.entity.User;
-import com.mystic.model.service.ContactService;
-import com.mystic.model.service.UserService;
+import com.mystic.service.ContactService;
+import com.mystic.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +23,10 @@ public class ContactController {
     private final UserService userService;
     private final ContactService contactService;
 
+    /**
+     * //TODO
+     * @return
+     */
     @GetMapping(value = "/contacts/get-all")
     public ResponseEntity returnAllContact() {
 

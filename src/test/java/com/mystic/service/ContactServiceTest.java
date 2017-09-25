@@ -1,4 +1,4 @@
-package com.mystic.model.service;
+package com.mystic.service;
 
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
@@ -69,9 +69,5 @@ public class ContactServiceTest {
     public void deleteByUserId() throws Exception {
         doThrow(new RuntimeException()).when(contactRepository).delete(USER_ID);
     }
-
-
-
-
 
 }

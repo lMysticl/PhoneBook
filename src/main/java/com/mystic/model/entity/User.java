@@ -1,6 +1,5 @@
 package com.mystic.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -42,7 +41,7 @@ public class User implements Serializable {
     private String middlename;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
+
     private List<Contact> contacts = new ArrayList<>();
 
 }

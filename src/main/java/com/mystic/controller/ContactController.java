@@ -23,10 +23,7 @@ public class ContactController {
     private final UserService userService;
     private final ContactService contactService;
 
-    /**
-     * //TODO
-     * @return
-     */
+
     @GetMapping(value = "/contacts/get-all")
     public ResponseEntity returnAllContact() {
 

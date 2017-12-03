@@ -19,12 +19,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User findByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUsername(username);
-        if (user.isPresent()) {
-            return user.get();
-        } else {
-            throw new UsernameNotFoundException("Username '" + "' not found");
-        }
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Username not found"));
     }
 
     public User saveUser(User user) {

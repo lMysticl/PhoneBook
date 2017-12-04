@@ -11,7 +11,6 @@ import java.util.ArrayList;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Component("contactService")
 @AllArgsConstructor
 @Transactional

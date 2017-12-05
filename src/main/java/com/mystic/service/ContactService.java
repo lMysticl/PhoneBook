@@ -3,7 +3,7 @@ package com.mystic.service;
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * @author Putrenkov Pavlo
  */
-@Component("contactService")
+@Service("contactService")
 @AllArgsConstructor
 @Transactional
 public class ContactService{

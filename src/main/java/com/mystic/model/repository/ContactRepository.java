@@ -1,9 +1,9 @@
 package com.mystic.model.repository;
 
 import com.mystic.model.entity.Contact;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 
 @Repository
-public interface ContactRepository extends CrudRepository<Contact, Long> {
+public interface ContactRepository extends JpaRepository<Contact, Long> {
 
     ArrayList<Contact> findByUserId(Long userId);
 

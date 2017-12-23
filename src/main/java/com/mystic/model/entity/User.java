@@ -15,8 +15,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class User implements Serializable {
 

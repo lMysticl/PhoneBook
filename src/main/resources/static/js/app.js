@@ -2,7 +2,6 @@ $(function () {
     var editingContactId;
 
     if (document.location.pathname == "/") {
-
         getAllContact();
     }
 
@@ -34,8 +33,10 @@ $(function () {
         event.preventDefault();
     });
 
+
     $("#add-contact-form").submit(function (event) {
         var formData = {
+            "contactId": editingContactId,
             "firstname": $("#add_firstname").val(),
             "lastname": $("#add_lastname").val(),
             "middlename": $("#add_middlename").val(),
@@ -171,7 +172,6 @@ $(function () {
         var myTable = $('#example').DataTable();
 
         myTable.row.add([
-
             data.contactId,
             data.firstname,
             data.lastname,

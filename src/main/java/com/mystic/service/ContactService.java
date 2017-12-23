@@ -1,5 +1,6 @@
 package com.mystic.service;
 
+import com.mystic.model.dto.ContactDTO;
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class ContactService{
         return contactRepository.saveAndFlush(contact);
     }
 
-    public void updateContact(Contact contact) {
+    public void updateContact(ContactDTO contact) {
         contactRepository.updateContact(
                 contact.getContactId(),
                 contact.getFirstname(),

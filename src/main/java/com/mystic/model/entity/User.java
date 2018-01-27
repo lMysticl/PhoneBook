@@ -39,7 +39,6 @@ public class User implements Serializable {
     private String middlename;
 
     @OneToMany(mappedBy = "user")
-
     private List<Contact> contacts = new ArrayList<>();
 
 }

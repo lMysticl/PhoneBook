@@ -32,4 +32,5 @@ public class ContactDTO {
     private String email;
 
     private User user;
+
 }

@@ -69,7 +69,9 @@ public class ContactController {
 
         UserDTO userDTO = modelMapper.map(user, UserDTO.class);
 
-        contact.setUserId(userDTO.getUserId());
+        ContactDTO contactDTO = modelMapper.map(contact, ContactDTO.class);
+
+        contactDTO.setUserId(userDTO.getUserId());
 
         return contactService.saveContact(contact);
     }

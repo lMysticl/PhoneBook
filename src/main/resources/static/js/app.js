@@ -1,11 +1,11 @@
 $(function () {
     var editingContactId;
 
-    if (document.location.pathname == "/") {
+    if (document.location.pathname === "/") {
         getAllContact();
     }
 
-    if (document.location.search == "?error" && document.location.pathname == "/login") {
+    if (document.location.search === "?error" && document.location.pathname === "/login") {
         alert("You enter invalid password or username")
     }
 
@@ -193,27 +193,7 @@ $(function () {
 
         }
 
-        // $("#example_previous").find('li:eq(1)').attr('id', 'customeId');
-        // $( "ul.pagination > a").click("li").attr("id", "myid");
     }
-
-
-
-
-
-
-    // $(document).ready(function () {
-    //     $('.paginate_button a').click(function () {
-    //         alert("dasdasd");
-    //         test();
-    //     });
-    //
-    // });
-    //
-    // $('#addContact').on('click' ,function () {
-    //             test();
-    //             console.log("sadasd");
-    //          });
 
 
     function validateContact(formData) {

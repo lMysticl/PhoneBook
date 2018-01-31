@@ -1,12 +1,10 @@
 package com.mystic.service;
 
-import com.mystic.model.dto.ContactDTO;
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 /**
@@ -14,14 +12,12 @@ import java.util.ArrayList;
  */
 @Service("contactService")
 @AllArgsConstructor
-@Transactional
 public class ContactService{
 
     private  ContactRepository contactRepository;
 
     public ArrayList<Contact> getByUserId(Long userId) {
         return contactRepository.findByUserId(userId);
-
     }
 
     public void deleteByUserId(Long userId) {
@@ -32,7 +28,7 @@ public class ContactService{
         return contactRepository.saveAndFlush(contact);
     }
 
-    public void updateContact(ContactDTO contact) {
+    public void updateContact(Contact contact) {
         contactRepository.updateContact(
                 contact.getContactId(),
                 contact.getFirstname(),

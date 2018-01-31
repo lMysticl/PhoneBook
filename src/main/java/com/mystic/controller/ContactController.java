@@ -1,6 +1,5 @@
 package com.mystic.controller;
 
-import com.mystic.model.dto.ContactDTO;
 import com.mystic.model.dto.UserDTO;
 import com.mystic.model.entity.Contact;
 import com.mystic.model.entity.User;
@@ -58,20 +57,11 @@ public class ContactController {
     @PostMapping(value = "contacts/add")
     public Contact addContact(Contact contact) {
 
-
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-
-
         User user = userService.findByUsername(authentication.getName());
-        ModelMapper modelMapper = new ModelMapper();
 
-        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
-
-        ContactDTO contactDTO = modelMapper.map(contact, ContactDTO.class);
-
-        contactDTO.setUserId(userDTO.getUserId());
+        contact.setUserId(user.getUserId());
 
         return contactService.saveContact(contact);
     }
@@ -83,10 +73,7 @@ public class ContactController {
 
     @PostMapping(value = "contacts/update")
     public void updateContact(Contact contact) {
-        ModelMapper modelMapper = new ModelMapper();
 
-        ContactDTO contactDTO = modelMapper.map(contact, ContactDTO.class);
-
-        contactService.updateContact(contactDTO);
+        contactService.updateContact(contact);
     }
 }

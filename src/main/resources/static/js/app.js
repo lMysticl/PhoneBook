@@ -189,12 +189,31 @@ $(function () {
             document.querySelectorAll('table td')[i].onblur = function (event) {
                 event.target.innerHTML = event.target.innerHTML.replace(/&nbsp;/g, '').replace(/ /g, '').replace(/(<br>)/g, "");
                 getData(event);
-
             };
 
         }
 
+        // $("#example_previous").find('li:eq(1)').attr('id', 'customeId');
+        // $( "ul.pagination > a").click("li").attr("id", "myid");
     }
+
+
+
+
+
+
+    // $(document).ready(function () {
+    //     $('.paginate_button a').click(function () {
+    //         alert("dasdasd");
+    //         test();
+    //     });
+    //
+    // });
+    //
+    // $('#addContact').on('click' ,function () {
+    //             test();
+    //             console.log("sadasd");
+    //          });
 
 
     function validateContact(formData) {
@@ -210,7 +229,7 @@ $(function () {
             alert("Middlename must contain at least 4 characters");
             return false;
         }
-        if (!(formData.email == null) && !(formData.email == "-") && !(formData.email == "")) {
+        if (!(formData.email == null) && !(formData.email === "-") && !(formData.email === "")) {
             var regExp = /^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$/i;
             if (!regExp.test(formData.email)) {
                 alert("Please enter correct email");
@@ -250,11 +269,20 @@ function getData(event) {
 $(document).ready(function () {
     var table = $('#example').DataTable();
 
-    $('#example tbody').on('click', 'tr', function () {
+    $('#example').find('tbody').on('click', 'tr', function () {
         $(this).toggleClass('selected');
+        test();
+        for (var i = 0; i < document.querySelectorAll('table td').length; i++) {
+            document.querySelectorAll('table td')[i].onblur = function (event) {
+                event.target.innerHTML = event.target.innerHTML.replace(/&nbsp;/g, '').replace(/ /g, '').replace(/(<br>)/g, "");
+                getData(event);
+            };
+
+        }
     });
 
     $('#deleteContact').click(function () {
+
         console.log(table.rows('.selected').data().length + ' row(s) selected');
         for (var i = 0; i < table.rows('.selected').data().length; i++) {
             console.log(table.rows('.selected').data()[i][0]);

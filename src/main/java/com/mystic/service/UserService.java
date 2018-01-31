@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
  */
 
 @Service("userService")
-
 @AllArgsConstructor
 public class UserService {
 

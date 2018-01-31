@@ -1,12 +1,11 @@
 $(function () {
     var editingContactId;
 
-    if (document.location.pathname == "/") {
-
+    if (document.location.pathname === "/") {
         getAllContact();
     }
 
-    if (document.location.search == "?error" && document.location.pathname == "/login") {
+    if (document.location.search === "?error" && document.location.pathname === "/login") {
         alert("You enter invalid password or username")
     }
 
@@ -34,8 +33,10 @@ $(function () {
         event.preventDefault();
     });
 
+
     $("#add-contact-form").submit(function (event) {
         var formData = {
+            "contactId": editingContactId,
             "firstname": $("#add_firstname").val(),
             "lastname": $("#add_lastname").val(),
             "middlename": $("#add_middlename").val(),
@@ -171,7 +172,6 @@ $(function () {
         var myTable = $('#example').DataTable();
 
         myTable.row.add([
-
             data.contactId,
             data.firstname,
             data.lastname,
@@ -189,7 +189,6 @@ $(function () {
             document.querySelectorAll('table td')[i].onblur = function (event) {
                 event.target.innerHTML = event.target.innerHTML.replace(/&nbsp;/g, '').replace(/ /g, '').replace(/(<br>)/g, "");
                 getData(event);
-
             };
 
         }
@@ -210,7 +209,7 @@ $(function () {
             alert("Middlename must contain at least 4 characters");
             return false;
         }
-        if (!(formData.email == null) && !(formData.email == "-") && !(formData.email == "")) {
+        if (!(formData.email == null) && !(formData.email === "-") && !(formData.email === "")) {
             var regExp = /^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$/i;
             if (!regExp.test(formData.email)) {
                 alert("Please enter correct email");
@@ -250,11 +249,20 @@ function getData(event) {
 $(document).ready(function () {
     var table = $('#example').DataTable();
 
-    $('#example tbody').on('click', 'tr', function () {
+    $('#example').find('tbody').on('click', 'tr', function () {
         $(this).toggleClass('selected');
+        test();
+        for (var i = 0; i < document.querySelectorAll('table td').length; i++) {
+            document.querySelectorAll('table td')[i].onblur = function (event) {
+                event.target.innerHTML = event.target.innerHTML.replace(/&nbsp;/g, '').replace(/ /g, '').replace(/(<br>)/g, "");
+                getData(event);
+            };
+
+        }
     });
 
     $('#deleteContact').click(function () {
+
         console.log(table.rows('.selected').data().length + ' row(s) selected');
         for (var i = 0; i < table.rows('.selected').data().length; i++) {
             console.log(table.rows('.selected').data()[i][0]);

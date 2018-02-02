@@ -1,5 +1,6 @@
 package com.mystic.controller;
 
+import com.mystic.config.CustomUserDetails;
 import com.mystic.model.dto.UserDTO;
 import com.mystic.model.entity.Contact;
 import com.mystic.model.entity.User;
@@ -7,11 +8,13 @@ import com.mystic.service.ContactService;
 import com.mystic.service.UserService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,14 +31,16 @@ public class ContactController {
     private final UserService userService;
     private final ContactService contactService;
 
+    @Qualifier("getTokenStore")
+    @Autowired
+    private TokenStore tokenStore;
 
     @GetMapping(value = "/contacts/get-all",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity returnAllContact() {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        User user = userService.findByUsername(authentication.getName());
-
+        User user = userService.getUser(userDetails.getUsername());
 
         ModelMapper modelMapper = new ModelMapper();
 
@@ -57,10 +62,9 @@ public class ContactController {
     @PostMapping(value = "contacts/add")
     public Contact addContact(Contact contact) {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        User user = userService.findByUsername(authentication.getName());
-
+        User user = userService.getUser(userDetails.getUsername());
         contact.setUserId(user.getUserId());
 
         return contactService.saveContact(contact);

@@ -1,6 +1,9 @@
 package com.mystic.model.entity;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,6 +20,20 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 public class User implements Serializable {
+
+//    @JsonIgnore
+//    private String password;
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    private List<Role> roles;
+
+    User() {}
+
+    public User(String username, String password, List<Role> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -9,7 +9,6 @@ import java.io.Serializable;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Entity
 @Table(name = "contacts")
 @Getter

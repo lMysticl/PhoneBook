@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class Api {
 
-    @RequestMapping(value ="/zalupa")
+    @RequestMapping(value = "/zalupa")
     @PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER') or hasAuthority('ADMIN_USER')")
-    public User getUser(){
+    public User getUser() {
         User zalupa = new User();
         zalupa.setFirstname("Zalupa");
         return zalupa;

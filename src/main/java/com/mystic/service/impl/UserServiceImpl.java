@@ -16,7 +16,6 @@ import java.util.List;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Service("userService")
 //@AllArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -24,32 +23,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-//    public User findByUsername(String username) throws UsernameNotFoundException {
-//        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Username not found"));
-//    }
     public User findByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);
     }
-//
-//    public User saveUser(User user) {
-//        return userRepository.saveAndFlush(user);
-//    }
-//
-//    public boolean existsUsername(String username) {
-//        return userRepository.findByUsername(username).isPresent();
-//    }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    public void save(User user){
+    public void save(User user) {
         user.setPassword(passwordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
 
-    public User getUser(String username){
+    public User getUser(String username) {
         return userRepository.findByUsername(username);
     }
 
@@ -57,13 +45,11 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    public User findById( Long id ) throws AccessDeniedException {
-        User u = userRepository.findOne( id );
-        return u;
+    public User findById(Long id) throws AccessDeniedException {
+        return userRepository.findOne(id);
     }
 
     public List<User> findAll() throws AccessDeniedException {
-        List<User> result = userRepository.findAll();
-        return result;
+        return userRepository.findAll();
     }
 }

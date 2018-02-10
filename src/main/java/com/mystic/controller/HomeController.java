@@ -25,30 +25,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class HomeController {
 
 
-    public String index(){
-        return "index";
-    }
-
-    @GetMapping(value="/registration")
-    public String register(){
-        return "register";
-    }
-
-    @GetMapping(value="/login")
-    public String login(){
-        return "login";
-    }
-
     @Autowired
     private AuthenticationManager authenticationManager;
-
     @Autowired
     private SecurityConfig tokenUtils;
-
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @PostMapping(value="/")
+    public String index() {
+        return "index";
+    }
+
+    @GetMapping(value = "/registration")
+    public String register() {
+        return "register";
+    }
+
+    @GetMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
+
+    @PostMapping(value = "/")
     public ResponseEntity<?> authenticationRequest(@RequestBody AuthenticationRequest authenticationRequest)
             throws AuthenticationException {
 

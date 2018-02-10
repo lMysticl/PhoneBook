@@ -21,7 +21,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
-/** This test only demo
+/**
+ * This test only demo
+ *
  * @author Pavel Putrenkov
  */
 
@@ -35,7 +37,6 @@ public class ContactServiceImplTest {
     private ContactServiceImpl contactServiceImpl;
     @Mock
     private ContactRepository contactRepository;
-
 
 
     private Contact result;

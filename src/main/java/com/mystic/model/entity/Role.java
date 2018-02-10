@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name="app_role")
+@Table(name = "app_role")
 @Getter
 @Setter
 public class Role {
@@ -15,13 +15,14 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="role_name")
+    @Column(name = "role_name")
     private String name;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
-    Role() {}
+    Role() {
+    }
 
     public Role(String name) {
         this.name = name;

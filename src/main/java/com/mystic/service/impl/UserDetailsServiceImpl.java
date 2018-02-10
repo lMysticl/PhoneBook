@@ -13,11 +13,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nydiarra on 06/05/17.
- */
+
 @Component
-public class AppUserDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
@@ -25,7 +23,7 @@ public class AppUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(s);
 
-        if(user == null) {
+        if (user == null) {
             throw new UsernameNotFoundException(String.format("The username %s doesn't exist", s));
         }
 

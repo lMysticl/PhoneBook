@@ -25,43 +25,21 @@ public class UserController {
 
     private final UserServiceImpl userServiceImpl;
 
-//    @PostMapping(value = "/registration")
-//    public ResponseEntity registration(User user) {
-//        if (userServiceImpl.existsUsername(user.getUsername())) {
-//            return ResponseEntity
-//                    .status(HttpStatus.NOT_ACCEPTABLE)
-//                    .body("User with this username already register");
-//        } else {
-//            user.setPassword(passwordEncoder.encode(user.getPassword()));
-//            userServiceImpl.saveUser(user);
-//            return ResponseEntity
-//                    .ok("User successfully registered");
-//
-//        }
-//    }
-//
-//    @GetMapping(value = "/logout")
-//    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        new SecurityContextLogoutHandler().logout(request, response, auth);
-//        return "redirect:/login?logout";
-//    }
-
 
     @Autowired
     private TokenStore tokenStore;
 
 
     @PostMapping(value = "/register")
-    public String register(@RequestBody UserRegistration userRegistration){
-        if(!userRegistration.getPassword().equals(userRegistration.getPasswordConfirmation()))
+    public String register(@RequestBody UserRegistration userRegistration) {
+        if (!userRegistration.getPassword().equals(userRegistration.getPasswordConfirmation()))
             return "Error the two passwords do not match";
-        else if(userServiceImpl.getUser(userRegistration.getUsername()) != null)
+        else if (userServiceImpl.getUser(userRegistration.getUsername()) != null)
             return "Error this username already exists";
 
         //Checking for non alphanumerical characters in the username.
         Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
-        if(pattern.matcher(userRegistration.getUsername()).find())
+        if (pattern.matcher(userRegistration.getUsername()).find())
             return "No special characters are allowed in the username";
 
         userServiceImpl.save(new User(userRegistration.getUsername(), userRegistration.getPassword(), Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
@@ -70,7 +48,7 @@ public class UserController {
 
 
     @GetMapping(value = "/autosingin")
-    public UserDTO autoSingIn(){
+    public UserDTO autoSingIn() {
         User user = userServiceImpl.getUser((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
         ModelMapper modelMapper = new ModelMapper();
@@ -83,19 +61,18 @@ public class UserController {
     }
 
 
-
     @GetMapping(value = "/users")
-    public List<User> users(){
+    public List<User> users() {
         return userServiceImpl.getAllUsers();
     }
 
     @GetMapping(value = "/logouts")
-    public void logout(@RequestParam(value = "access_token") String accessToken){
+    public void logout(@RequestParam(value = "access_token") String accessToken) {
         tokenStore.removeAccessToken(tokenStore.readAccessToken(accessToken));
     }
 
-    @GetMapping(value ="/getUsername")
-    public String getUsername(){
+    @GetMapping(value = "/getUsername")
+    public String getUsername() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 

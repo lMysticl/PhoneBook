@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class ContactServiceImpl {
 
-    private  ContactRepository contactRepository;
+    private ContactRepository contactRepository;
 
     public ArrayList<Contact> getByUserId(Long userId) {
         return contactRepository.findByUserId(userId);

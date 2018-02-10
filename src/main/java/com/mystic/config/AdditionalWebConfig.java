@@ -13,9 +13,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-/**
- * Created by nydiarra on 06/05/17.
- */
+
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class AdditionalWebConfig {
@@ -23,7 +21,6 @@ public class AdditionalWebConfig {
      * Allowing all origins, headers and methods here is only intended to keep this example simple.
      * This is not a default recommended configuration. Make adjustments as
      * necessary to your use case.
-     *
      */
     @Bean
     public FilterRegistrationBean corsFilter() {

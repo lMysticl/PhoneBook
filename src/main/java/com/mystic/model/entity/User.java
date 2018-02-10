@@ -24,8 +24,25 @@ public class User implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id_1", referencedColumnName = "user_id"),
-                    inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private long userId;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "password")
+    @JsonIgnore
+    private String password;
+    @Column(name = "firstname")
+    private String firstname;
+    @Column(name = "lastname")
+    private String lastname;
+    @Column(name = "middlename")
+    private String middlename;
+    @OneToMany(mappedBy = "user")
+    private List<Contact> contacts = new ArrayList<>();
 
     public User() {
     }
@@ -35,30 +52,5 @@ public class User implements Serializable {
         this.password = password;
         this.roles = roles;
     }
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private long userId;
-
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "password")
-    @JsonIgnore
-    private String password;
-
-    @Column(name = "firstname")
-    private String firstname;
-
-    @Column(name = "lastname")
-    private String lastname;
-
-    @Column(name = "middlename")
-    private String middlename;
-
-    @OneToMany(mappedBy = "user")
-    private List<Contact> contacts = new ArrayList<>();
 
 }

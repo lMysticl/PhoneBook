@@ -4,9 +4,13 @@ import com.mystic.model.entity.User;
 
 import java.util.List;
 
-
-public interface UserService {
-    User findById(Long id);
+/**
+ * Created by nydiarra on 06/05/17.
+ */
+public interface GenericService {
     User findByUsername(String username);
-    List<User> findAll();
+
+    List<User> findAllUsers();
+
+
 }

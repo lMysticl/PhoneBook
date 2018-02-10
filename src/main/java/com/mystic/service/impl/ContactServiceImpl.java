@@ -1,4 +1,4 @@
-package com.mystic.service;
+package com.mystic.service.impl;
 
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 @Service("contactService")
 @AllArgsConstructor
-public class ContactService{
+public class ContactServiceImpl {
 
     private  ContactRepository contactRepository;
 
@@ -21,7 +21,7 @@ public class ContactService{
     }
 
     public void deleteByUserId(Long userId) {
-        contactRepository.delete(userId);
+        contactRepository.delete(contactRepository.getOne(userId));
     }
 
     public Contact saveContact(Contact contact) {

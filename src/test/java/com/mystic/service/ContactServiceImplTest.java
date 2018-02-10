@@ -2,6 +2,7 @@ package com.mystic.service;
 
 import com.mystic.model.entity.Contact;
 import com.mystic.model.repository.ContactRepository;
+import com.mystic.service.impl.ContactServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,12 +27,12 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-public class ContactServiceTest {
+public class ContactServiceImplTest {
 
     private static final Long USER_ID = 0L;
 
     @InjectMocks
-    private ContactService contactService;
+    private ContactServiceImpl contactServiceImpl;
     @Mock
     private ContactRepository contactRepository;
 
@@ -43,7 +44,7 @@ public class ContactServiceTest {
     private List<Contact> contacts = new ArrayList<>();
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         result = mock(Contact.class);
@@ -52,22 +53,22 @@ public class ContactServiceTest {
     }
 
     @Test
-    public void getByUserId() throws Exception {
-        assertEquals(contactService.getByUserId(USER_ID), contacts);
+    public void getByUserId() {
+        assertEquals(contactServiceImpl.getByUserId(USER_ID), contacts);
     }
 
     @Test
-    public void saveContact() throws Exception {
+    public void saveContact() {
 
         actual.setUserId(USER_ID);
         result.setUserId(USER_ID);
 
-        when(contactService.saveContact(actual)).thenReturn(result);
+        when(contactServiceImpl.saveContact(actual)).thenReturn(result);
     }
 
     @Test
-    public void deleteByUserId() throws Exception {
-        doThrow(new RuntimeException()).when(contactRepository).delete(USER_ID);
+    public void deleteByUserId() {
+        doThrow(new RuntimeException()).when(contactRepository).delete(contactRepository.getOne(USER_ID));
     }
 
 }

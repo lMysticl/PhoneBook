@@ -1,11 +1,13 @@
 package com.mystic.controller;
 
+import com.mystic.model.dto.UserDTO;
 import com.mystic.model.entity.Role;
 import com.mystic.model.entity.User;
 import com.mystic.model.pojos.UserRegistration;
-import com.mystic.service.UserService;
+import com.mystic.service.impl.UserServiceImpl;
+import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.*;
@@ -18,21 +20,20 @@ import java.util.regex.Pattern;
  * @author Putrenkov Pavlo
  */
 @RestController
+@AllArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-
+    private final UserServiceImpl userServiceImpl;
 
 //    @PostMapping(value = "/registration")
 //    public ResponseEntity registration(User user) {
-//        if (userService.existsUsername(user.getUsername())) {
+//        if (userServiceImpl.existsUsername(user.getUsername())) {
 //            return ResponseEntity
 //                    .status(HttpStatus.NOT_ACCEPTABLE)
 //                    .body("User with this username already register");
 //        } else {
 //            user.setPassword(passwordEncoder.encode(user.getPassword()));
-//            userService.saveUser(user);
+//            userServiceImpl.saveUser(user);
 //            return ResponseEntity
 //                    .ok("User successfully registered");
 //
@@ -47,7 +48,6 @@ public class UserController {
 //    }
 
 
-    @Qualifier("getTokenStore")
     @Autowired
     private TokenStore tokenStore;
 
@@ -56,7 +56,7 @@ public class UserController {
     public String register(@RequestBody UserRegistration userRegistration){
         if(!userRegistration.getPassword().equals(userRegistration.getPasswordConfirmation()))
             return "Error the two passwords do not match";
-        else if(userService.getUser(userRegistration.getUsername()) != null)
+        else if(userServiceImpl.getUser(userRegistration.getUsername()) != null)
             return "Error this username already exists";
 
         //Checking for non alphanumerical characters in the username.
@@ -64,13 +64,29 @@ public class UserController {
         if(pattern.matcher(userRegistration.getUsername()).find())
             return "No special characters are allowed in the username";
 
-        userService.save(new User(userRegistration.getUsername(), userRegistration.getPassword(), Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
+        userServiceImpl.save(new User(userRegistration.getUsername(), userRegistration.getPassword(), Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
         return "User created";
     }
 
+
+    @GetMapping(value = "/autosingin")
+    public UserDTO autoSingIn(){
+        User user = userServiceImpl.getUser((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+
+        ModelMapper modelMapper = new ModelMapper();
+
+        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+
+        return userDTO;
+
+
+    }
+
+
+
     @GetMapping(value = "/users")
     public List<User> users(){
-        return userService.getAllUsers();
+        return userServiceImpl.getAllUsers();
     }
 
     @GetMapping(value = "/logouts")

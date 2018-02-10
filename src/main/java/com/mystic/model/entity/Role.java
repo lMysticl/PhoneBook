@@ -1,28 +1,29 @@
 package com.mystic.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name="app_role")
+@Getter
+@Setter
 public class Role {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String name;
+
+    @Column(name="role_name")
+    private String name;
+
+    @Column(name="description")
+    private String description;
 
     Role() {}
 
     public Role(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 }

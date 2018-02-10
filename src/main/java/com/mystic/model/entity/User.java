@@ -1,5 +1,6 @@
 package com.mystic.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,19 +15,20 @@ import java.util.List;
  * @author Putrenkov Pavlo
  */
 @Entity
-@Table(name = "users")
+@Table(name = "app_user")
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
 public class User implements Serializable {
 
-//    @JsonIgnore
-//    private String password;
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id_1", referencedColumnName = "user_id"),
+                    inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles;
 
-    User() {}
+    public User() {
+    }
 
     public User(String username, String password, List<Role> roles) {
         this.username = username;
@@ -36,7 +38,7 @@ public class User implements Serializable {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private long userId;
 
@@ -44,6 +46,7 @@ public class User implements Serializable {
     private String username;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
     @Column(name = "firstname")

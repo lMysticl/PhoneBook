@@ -18,7 +18,7 @@ import java.io.Serializable;
 public class Contact implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contact_id")
     private long contactId;
 

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long> {
 

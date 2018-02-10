@@ -1,5 +1,7 @@
 package com.mystic.model.pojos;
-
+/**
+ * @author Putrenkov Pavlo
+ */
 public class UserRegistration {
 
     private String username;

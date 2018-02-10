@@ -13,7 +13,9 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author Putrenkov Pavlo
+ */
 @Component
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired

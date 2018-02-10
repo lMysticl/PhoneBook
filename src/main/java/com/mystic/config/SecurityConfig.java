@@ -32,7 +32,9 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * @author Putrenkov Pavlo
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

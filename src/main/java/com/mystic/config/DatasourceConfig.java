@@ -7,12 +7,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 /**
- * Created by nydiarra on 06/05/17.
+ * @author Putrenkov Pavlo
  */
 @Configuration
 @EnableTransactionManagement

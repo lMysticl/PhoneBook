@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * @author Putrenkov Pavlo
  */
-
 @Controller
 public class HomeController {
 

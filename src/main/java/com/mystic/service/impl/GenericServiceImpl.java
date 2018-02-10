@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+/**
+ * @author Putrenkov Pavlo
+ */
 @Service
 public class GenericServiceImpl implements GenericService {
 

@@ -5,7 +5,7 @@ import com.mystic.model.entity.User;
 import java.util.List;
 
 /**
- * Created by nydiarra on 06/05/17.
+ * @author Putrenkov Pavlo
  */
 public interface GenericService {
     User findByUsername(String username);

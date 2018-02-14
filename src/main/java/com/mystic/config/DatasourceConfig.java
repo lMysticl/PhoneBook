@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 public class DatasourceConfig {
 
     @Value("${spring.datasource.url}")
-    private String MYSQL_ADDRESS = "jdbc:mysql://localhost:3306/phonebook";
+    private String MYSQL_ADDRESS ;
 
     @Value("${spring.datasource.password}")
     private String MYSQL_PASSWORD;
@@ -37,6 +37,11 @@ public class DatasourceConfig {
         ds.setPassword(MYSQL_PASSWORD);
         return ds;
     }
+
+
+
+
+
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {

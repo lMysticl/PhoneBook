@@ -3,7 +3,6 @@ package com.mystic.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -21,9 +20,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Value("${security.jwt.resource-ids}")
     private String resourceIds;
-
-    @Autowired
-    private UserDetailsService jwtUserDetailsService;
 
 
     @Override

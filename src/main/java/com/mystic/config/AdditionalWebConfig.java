@@ -43,10 +43,11 @@ public class AdditionalWebConfig {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/oauth/token")
+                registry.addMapping("*")
                         .allowCredentials(true)
                         .allowedHeaders("*")
-                        .allowedOrigins("*");
+                        .allowedOrigins("*")
+                        .maxAge(3600);
             }
         };
     }

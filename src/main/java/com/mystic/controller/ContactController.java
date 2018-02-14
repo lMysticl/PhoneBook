@@ -52,37 +52,44 @@ public class ContactController {
 
     @PostMapping(value = "contacts/add")
     public Contact addContact(Contact contact) {
-        System.out.println("!!!!" + contact);
         User user = userServiceImpl.getUser((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         contact.setUserId(user.getUserId());
+        System.out.println("!!!!" + contact);
 
         return contactServiceImpl.saveContact(contact);
     }
 
     @PostMapping(value = "contacts/delete")
     public void deleteContact(Contact contact) {
-        contactServiceImpl.deleteByUserId(contact.getContactId());
-
+        if (contact != null) {
+            contactServiceImpl.deleteByUserId(contact.getContactId());
+        }
     }
 
-
     @PostMapping(value = "contacts/deleteList")
-    public void deleteContactList( String contactId) {
-        System.out.println("contactId!!!!!!! "+contactId);
-        List<String> items = Arrays.asList(contactId.split(","));
+    public void deleteContactList(String contactId) {
 
-        for (String item : items) {
-            contactServiceImpl.deleteByUserId(Long.valueOf(item));
+        System.out.println("contactId" + contactId);
+
+
+        if (contactId != null) {
+            System.out.println("contactId!!!!!!! " + contactId);
+            List<String> items = Arrays.asList(contactId.split(","));
+
+            for (String item : items) {
+                contactServiceImpl.deleteByUserId(Long.valueOf(item));
+            }
         }
-
     }
 
 
     @PostMapping(value = "contacts/update")
     public void updateContact(Contact contact) {
-        System.out.println("!!!!" + contact);
-        User user = userServiceImpl.getUser((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        contact.setUserId(user.getUserId());
-        contactServiceImpl.updateContact(contact);
+        if (contact != null) {
+            User user = userServiceImpl.getUser((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+            contact.setUserId(user.getUserId());
+            System.out.println("!!!!" + contact);
+            contactServiceImpl.updateContact(contact);
+        }
     }
 }

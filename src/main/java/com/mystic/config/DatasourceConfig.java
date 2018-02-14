@@ -19,13 +19,17 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(basePackages = "com.mystic.model.repository")
 public class DatasourceConfig {
 
+    private static final String MYSQL_ADDRESS = "jdbc:mysql://localhost:3306/phonebook";
+    private static final String MYSQL_PASSWORD = "root";
+    private static final String MYSQL_USER = "root";
+
     @Bean
     public DataSource datasource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
-        ds.setUrl("jdbc:mysql://localhost:3306/phonebook");
-        ds.setUsername("root");
-        ds.setPassword("root");
+        ds.setUrl(MYSQL_ADDRESS);
+        ds.setUsername(MYSQL_USER);
+        ds.setPassword(MYSQL_PASSWORD);
         return ds;
     }
 

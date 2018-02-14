@@ -1,16 +1,17 @@
 package com.mystic.config;
 
+import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * @author Putrenkov Pavlo
@@ -28,17 +29,31 @@ public class DatasourceConfig {
     @Value("${spring.datasource.username}")
     private String MYSQL_USER;
 
+//    @Bean
+//    public DataSource datasource() {
+//        DriverManagerDataSource ds = new DriverManagerDataSource();
+//        ds.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
+//        ds.setUrl(MYSQL_ADDRESS);
+//        ds.setUsername(MYSQL_USER);
+//        ds.setPassword(MYSQL_PASSWORD);
+//        return ds;
+//    }
+
     @Bean
-    public DataSource datasource() {
-        DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
-        ds.setUrl(MYSQL_ADDRESS);
-        ds.setUsername(MYSQL_USER);
-        ds.setPassword(MYSQL_PASSWORD);
-        return ds;
+    public BasicDataSource dataSource() throws URISyntaxException {
+        URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
+
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(dbUrl);
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
+
+        return basicDataSource;
     }
-
-
 
 
 

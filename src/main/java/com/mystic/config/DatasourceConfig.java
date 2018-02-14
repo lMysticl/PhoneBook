@@ -1,5 +1,6 @@
 package com.mystic.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -19,9 +20,13 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(basePackages = "com.mystic.model.repository")
 public class DatasourceConfig {
 
-    private static final String MYSQL_ADDRESS = "jdbc:mysql://localhost:3306/phonebook";
-    private static final String MYSQL_PASSWORD = "root";
-    private static final String MYSQL_USER = "root";
+    @Value("${spring.datasource.url}")
+    private String MYSQL_ADDRESS = "jdbc:mysql://localhost:3306/phonebook";
+
+    @Value("${spring.datasource.password}")
+    private String MYSQL_PASSWORD;
+    @Value("${spring.datasource.username}")
+    private String MYSQL_USER;
 
     @Bean
     public DataSource datasource() {

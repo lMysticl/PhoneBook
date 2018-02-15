@@ -34,7 +34,7 @@ spring:
 #  url: jdbc:mysql://localhost:3306/phonebook?useSSL=false&useUnicode=true&amp;characterEncoding=UTF-8
 #  username: root
 #  password: root
-  spring:
+spring:
  profiles: dev
  jpa:
    properties:

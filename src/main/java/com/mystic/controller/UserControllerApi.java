@@ -15,7 +15,6 @@ import java.util.List;
  * @author Putrenkov Pavlo
  */
 @RestController
-@CrossOrigin(origins = "http://localhost", maxAge = 3600)
 @AllArgsConstructor
 @RequestMapping("/api")
 public class UserControllerApi {

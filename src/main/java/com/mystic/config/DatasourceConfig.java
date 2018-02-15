@@ -30,6 +30,9 @@ public class DatasourceConfig {
     @Value("${spring.datasource.databaseschema}")
     private String MYSQL_SCHEMA;
 
+    @Value("${spring.datasource.driver-class-name}")
+    private String MYSQL_DRIVER;
+
 
 //    @Bean
 //    public DataSource datasource() {
@@ -66,6 +69,7 @@ public class DatasourceConfig {
 //        String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setDriverClassName(MYSQL_DRIVER);
         basicDataSource.setUrl(MYSQL_ADDRESS);
         basicDataSource.setUsername(MYSQL_USER);
         basicDataSource.setPassword(MYSQL_PASSWORD);

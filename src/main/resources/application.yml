@@ -41,7 +41,7 @@ spring:
     hibernate.dialect: org.hibernate.dialect.MySQLDialect
  datasource:
   driver-class-name: com.mysql.jdbc.Driver
-  url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_0aeea70e538f03d?reconnect=true?useSSL=false&useUnicode=true&amp;characterEncoding=UTF-8
+  url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_0aeea70e538f03d?useSSL=false&useUnicode=true&amp;characterEncoding=UTF-8
   username: b2bf68f6275318
   password: c7c3fb9a
 
